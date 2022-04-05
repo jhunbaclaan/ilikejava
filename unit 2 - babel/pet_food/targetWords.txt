@@ -1,0 +1,10 @@
+pet 
+dog 
+dogs 
+puppy 
+pup 
+cat 
+cats 
+kitty 
+kitten 
+bark 
