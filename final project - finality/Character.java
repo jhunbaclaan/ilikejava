@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Character extends Franchise
 {
     private String name;
@@ -5,17 +8,28 @@ public class Character extends Franchise
     private int rarity;
     protected boolean isClaimed;
 
-    public Character(franchise, name, rarity)
+    public Character(String franchise, String name, int rarity)
     {
-        super(franchise, name, rarity);
+        super();
         this.franchise = franchise;
         this.name = name;
         this.rarity = rarity;
         isClaimed = false;
     }
 
-    public void add(franchise, name)
+    public void add(String franchise, String name)
     {
-
+        try
+        {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNextLine())
+            {
+                String creation = sc.next();
+                if(creation.equals(""))
+                {
+                    characterList.add(null);
+                }
+            }
+        }
     }
 }
