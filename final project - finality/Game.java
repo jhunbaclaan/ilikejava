@@ -13,29 +13,29 @@ public class Game {
   public Game() {
     player = new Player();
     rolls = 25;
-
     Scanner sc = new Scanner(System.in);
-    String input = sc.nextLine();
+    
     boolean play = true;
-
     while (play) {
       System.out.println("enter r to roll or h for help:");
+      String input = sc.nextLine(); 
+
       //if statements for user input
       if (input.toLowerCase().equals("h")) {
-        help();
-      }
-      
+          help();
+        }
+
       if (input.toLowerCase().equals("q")) {
-        System.out.println("thanks for playing!");
-        play = false;
-      }
+          System.out.println("thanks for playing!");
+          play = false;
+        }
     }
   }
 
   public void help() {
-    System.out.println("list of commands:");
+    System.out.print("list of commands: ");
     System.out.println("r - roll, t - trade, w - wish, rl - rolls left, s - search, ss - series search, h - help");
-  }
+  }  
 
   public String search(String name) {
 
