@@ -9,11 +9,17 @@ public class Game {
   private ArrayList<Character> characters;
   private int rolls;
   
+  String characters = "";
+  DataCollector characterPool = new DataCollector();
+  characterPool.setData("gachaCahrs.txt");
   
   public Game() {
     player = new Player();
     rolls = 25;
     Scanner sc = new Scanner(System.in);
+
+    // character array + population
+    characters = new ArrayList<Character>();
     
     boolean play = true;
     while (play) {
@@ -38,7 +44,7 @@ public class Game {
   }  
 
   public String search(String name) {
-
+    
   }
 
   public String seriesSearch() {
