@@ -1,16 +1,15 @@
 public class Franchise 
 {
-    private String franchiseName;
     protected String franchise;
 
-    public Franchise(franchiseName)
+    public Franchise(String franchiseName)
     {
         this.franchiseName = franchiseName;
     }
 
-    public void setFranchise()
+    public void setFranchise(franchiseName)
     {
-        this.franchise = franchise;
+        this.franchise = franchiseName;
     }
 
     public String getFranchise()
