@@ -1,3 +1,8 @@
+// FIX ALL OF THIS
+// THERE ARE LIKE 12 ASSIGNMENT OR SYNTAX ERRORS PLEASE
+// HELP ME FIX THIS LATER
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
