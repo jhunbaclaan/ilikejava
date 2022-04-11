@@ -16,6 +16,30 @@ public class Character extends Franchise {
     isClaimed = false;
   }
 
+  public boolean claimStatus()
+  {
+    if (isClaimed = true)
+    {
+      System.out.println("This character is already claimed.");
+      return true;
+    }
+    else
+    {
+      System.out.println("This character has yet to be claimed.");
+      return false;
+    }
+  }
+
+  public int getRarity()
+  {
+    return rarity;
+  }
+
+  public String getFranchise()
+  {
+    return franchise;
+  }
+
   public void add(String franchise, String name){
     System.out.println("Type a characters franchise then their name (EX: Franchise, Name)");
     Scanner sc = new Scanner(System.in);
@@ -29,4 +53,8 @@ public class Character extends Franchise {
       System.out.println("Could not write to file. " + e);
     }
   }
+
+public boolean contains(String name2) {
+	return false;
+}
 }

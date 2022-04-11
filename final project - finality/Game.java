@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
 
 public class Game {
 
@@ -8,10 +9,6 @@ public class Game {
   private Character character;
   private ArrayList<Character> characters;
   private int rolls;
-  
-  String characters = "";
-  DataCollector characterPool = new DataCollector();
-  characterPool.setData("gachaCahrs.txt");
   
   public Game() {
     player = new Player();
@@ -43,8 +40,19 @@ public class Game {
     System.out.println("r - roll, t - trade, w - wish, rl - rolls left, s - search, ss - series search, h - help");
   }  
 
-  public String search(String name) {
-    
+  public void search(String name) {
+      for (Character targetChar : characters)
+      {
+        if (targetChar.contains(name))
+        {
+          System.out.println(name + ", from the franchise " + character.getFranchise());
+          System.out.println(character.claimStatus());
+        }
+        else
+        {
+          System.out.println(name + "does not exist. Try adding them with \"add\"!");
+        }
+      }
   }
 
   public String seriesSearch() {
@@ -60,7 +68,13 @@ public class Game {
   }
 
   public Character roll() { 
-
+    rolls--;
+    
+    //picks random character from characters list
+    int random = (int) Math.random() * characters.size();
+    character = characters.get(random);
+    
+    return character;
   }
 
   public int getRolls() {
