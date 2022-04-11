@@ -55,12 +55,23 @@ public class Game {
       }
   }
 
-  public String seriesSearch() {
-
+  public void seriesSearch(String series) {
+    for(Franchise targetSeries : characters)
+    {
+      if (targetSeries.contains(series))
+      {
+        System.out.println(series + "exists, with "); // supposed to list how many characters in series
+      }
+      else
+      {
+        System.out.println(series + "does not exist!");
+      }
+    }
   }
 
-  public void trade(String char1, String char2) {
-
+  public void trade(String char1, String char2)  // i still dont know how trading is going to work so
+  {
+    
   }
 
   public String wish(Character character) {
@@ -69,15 +80,19 @@ public class Game {
 
   public Character roll() { 
     rolls--;
+  
+    int randIndex = (int) Math.random() * characters.size();
+    Character gacha = characters.get(randIndex);
+    characters.remove(randIndex); 
+    // note: characters list will eventually run out and throw exception when rolling
+    System.out.println(gacha);
     
-    //picks random character from characters list
-    int random = (int) Math.random() * characters.size();
-    character = characters.get(random);
-    
-    return character;
+    return gacha;
+
   }
 
-  public int getRolls() {
-    
+  public int getRolls() 
+  {
+    return rolls;
   }
 }

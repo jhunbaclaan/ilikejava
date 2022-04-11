@@ -7,12 +7,17 @@ public class Franchise
       
     }
   
-  public void setFranchise(String newFran){
-    this.franchise = newFran;
-  }
+    public void setFranchise(String newFran){
+      this.franchise = newFran;
+    }
 
-  public String getFranchise()
-  {
-    return franchise;
-  }
+    public String getFranchise()
+    {
+      return franchise;
+    }
+
+    public boolean contains(String series) 
+    {
+    return false;
+    }
 }

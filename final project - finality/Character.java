@@ -54,7 +54,7 @@ public class Character extends Franchise {
     }
   }
 
-public boolean contains(String name2) {
+  public boolean contains(String name2) {
 	return false;
-}
+  }
 }
