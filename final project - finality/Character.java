@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -57,4 +58,13 @@ public class Character extends Franchise {
   public boolean contains(String name2) {
 	return false;
   }
+
+  public int indexOf(String string) {
+    return 0;
+  }
+
+  public Collection<? extends String> substring(int i) {
+    return null;
+  }
+
 }

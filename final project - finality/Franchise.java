@@ -4,7 +4,8 @@ public class Franchise
     
     public Franchise()
     {
-      
+      super();
+      this.franchise = franchise;
     }
   
     public void setFranchise(String newFran){

@@ -1,4 +1,5 @@
 public class WishChar extends Character {
+    /*  basically a whole lot of jumbo for now
     boolean trulse = false;
     public boolean isWished(Player name){
       DataCollector dCollector = new DataCollector();
@@ -11,5 +12,5 @@ public class WishChar extends Character {
         // System.out.println(currentChar + " is " + trulse);
       }
       return trulse;
-    }
+    } */
   }

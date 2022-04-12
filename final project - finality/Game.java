@@ -9,7 +9,9 @@ public class Game {
   private Character character;
   private ArrayList<Character> characters;
   private int rolls;
-  
+
+  DataCollector pool = new DataCollector(); // datacollector for datacollector things
+
   public Game() {
     player = new Player();
     rolls = 25;
@@ -25,13 +27,39 @@ public class Game {
 
       //if statements for user input
       if (input.toLowerCase().equals("h")) {
-          help();
-        }
+        help();
+      }
+
+      if (input.toLowerCase().equals("s")){
+        System.out.println("Enter the name of a character.");
+        search(sc.nextLine());
+      }
+
+      if (input.toLowerCase().equals("ss")){
+        System.out.println("Enter the name of a series.");
+        seriesSearch(sc.nextLine());
+      }
+
+      if (input.toLowerCase().equals("t")){
+
+      }
+
+      if (input.toLowerCase().equals("w")){
+
+      }
+
+      if (input.toLowerCase().equals("r")){
+        roll();
+      }
+
+      if (input.toLowerCase().equals("rl")){
+        System.out.println("You have " + getRolls() + " left");
+      }
 
       if (input.toLowerCase().equals("q")) {
-          System.out.println("thanks for playing!");
-          play = false;
-        }
+        System.out.println("thanks for playing!");
+        play = false;
+      }
     }
   }
 
@@ -56,15 +84,19 @@ public class Game {
   }
 
   public void seriesSearch(String series) {
-    for(Franchise targetSeries : characters)
+    for (Character f : characters)
     {
-      if (targetSeries.contains(series))
+      ArrayList <String> seriesList = new ArrayList<String>(f.substring(f.indexOf("-") + 1));
+      for (String s : seriesList)
       {
-        System.out.println(series + "exists, with "); // supposed to list how many characters in series
-      }
-      else
-      {
-        System.out.println(series + "does not exist!");
+        if (s == series)
+        {
+          System.out.println(series + " exists.");
+        }
+        else
+        {
+          System.out.println(series + " does not exist. Add a franchise by adding a character with \"add\"!");
+        }
       }
     }
   }
