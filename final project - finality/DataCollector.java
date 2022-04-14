@@ -36,5 +36,10 @@ public class DataCollector {
 
   }
 
+  public ArrayList<String> getList()
+  {
+    return gachaChars;
+  }
+
 
 }

@@ -1,22 +1,61 @@
-import java.util.Collection;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Character extends Franchise {
+  private ArrayList<String> characterList;
   private String name;
   private String franchise;
   private int rarity;
   private boolean isClaimed;
 
-  public Character(){
+  // constructors
+  public Character() {
     super();
-    this.franchise = franchise;
-    this.name = name;
-    this.rarity = rarity;
+    setCharacterList();
+    name = characterList.get(0);
     isClaimed = false;
   }
 
+  public Character(int index) {
+    super(index);
+    setCharacterList();
+    name = characterList.get(index);
+    isClaimed = false;
+  }
+  
+  // accessors
+  public String getCharacter() {
+    return this.name;
+  }
+
+  public ArrayList<String> getCharacterList() {
+    return characterList;
+
+  }
+
+  // mutators
+  public void setCharacter(int index) {
+    name = characterList.get(index);
+  }
+
+  public void setCharacterList() {
+
+    ArrayList<String> tempList = dc.getList();
+    characterList = new ArrayList<String>();
+    // goes through data collector's list and grabs only the character name
+    for (String str : tempList) {
+      characterList.add(str.substring(0, str.indexOf("-")));
+    }
+
+  }
+
+  public String toString() {
+    return name;
+  }
+  
   public boolean claimStatus()
   {
     if (isClaimed = true)
@@ -36,11 +75,6 @@ public class Character extends Franchise {
     return rarity;
   }
 
-  public String getFranchise()
-  {
-    return franchise;
-  }
-
   public void add(String franchise, String name){
     System.out.println("Type a characters franchise then their name (EX: Franchise, Name)");
     Scanner sc = new Scanner(System.in);
@@ -54,8 +88,8 @@ public class Character extends Franchise {
       System.out.println("Could not write to file. " + e);
     }
   }
-
-  public boolean contains(String name2) {
+  public boolean contains(String name2) // vsc quick fix solution for searching chars :p
+  {
 	return false;
   }
 
@@ -66,5 +100,4 @@ public class Character extends Franchise {
   public Collection<? extends String> substring(int i) {
     return null;
   }
-
 }

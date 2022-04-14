@@ -1,16 +1,12 @@
 public class WishChar extends Character {
-    /*  basically a whole lot of jumbo for now
-    boolean trulse = false;
-    public boolean isWished(Player name){
-      DataCollector dCollector = new DataCollector();
-      String currentChar = dCollector.getNextPost();
-  
-      while (currentChar != "NONE"){
-        if (name.getInventory().contains(currentChar)){
-          trulse = true;
+    public static boolean isWished(Player name, String character){
+      for (WishChar c : name.getWishlist()) {
+          if (c.contains(character)){
+            return true;
+          }
+          else if (!c.contains(character)){
+            return false;
+          }
         }
-        // System.out.println(currentChar + " is " + trulse);
       }
-      return trulse;
-    } */
-  }
+}

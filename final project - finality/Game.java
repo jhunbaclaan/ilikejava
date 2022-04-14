@@ -5,20 +5,24 @@ import java.io.File;
 public class Game {
 
   //attributes
+  private DataCollector dc;
   private Player player;
   private Character character;
   private ArrayList<Character> characters;
   private int rolls;
 
-  DataCollector pool = new DataCollector(); // datacollector for datacollector things
-
   public Game() {
+    dc = new DataCollector();
     player = new Player();
     rolls = 25;
     Scanner sc = new Scanner(System.in);
 
     // character array + population
     characters = new ArrayList<Character>();
+    for(int i = 1; i < dc.getList().size(); i++) {
+      Character character = new Character(i);
+      characters.add(character);
+    }
     
     boolean play = true;
     while (play) {
@@ -69,24 +73,24 @@ public class Game {
   }  
 
   public void search(String name) {
-      for (Character targetChar : characters)
+      for (Character targetChar : character.getCharacterList()) // idea is to look through the arraylist of characters
       {
-        if (targetChar.contains(name))
+        if (targetChar.contains(name)) // if contains search query, it works properly
         {
           System.out.println(name + ", from the franchise " + character.getFranchise());
           System.out.println(character.claimStatus());
         }
         else
         {
-          System.out.println(name + "does not exist. Try adding them with \"add\"!");
+          System.out.println(name + " does not exist. Try adding them with \"add\"!");
         }
       }
   }
 
   public void seriesSearch(String series) {
-    for (Character f : characters)
+    for (Character f : characters) // similar process to search
     {
-      ArrayList <String> seriesList = new ArrayList<String>(f.substring(f.indexOf("-") + 1));
+      ArrayList <String> seriesList = new ArrayList<String>(f.substring(f.indexOf("-") + 1)); // substring OF "characters-franchise"; +1 to get franchise
       for (String s : seriesList)
       {
         if (s == series)
@@ -101,19 +105,20 @@ public class Game {
     }
   }
 
-  public void trade(String char1, String char2)  // i still dont know how trading is going to work so
+  /* public void trade(String char1, String char2)  // i still dont know how trading is going to work so
   {
     
   }
 
-  public String wish(Character character) {
-
-  }
+  /* public String wish(Character character) 
+  {
+    
+  } */
 
   public Character roll() { 
     rolls--;
   
-    int randIndex = (int) Math.random() * characters.size();
+    int randIndex = (int) (Math.random() * characters.size());
     Character gacha = characters.get(randIndex);
     characters.remove(randIndex); 
     // note: characters list will eventually run out and throw exception when rolling
