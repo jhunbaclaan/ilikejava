@@ -8,5 +8,6 @@ public class WishChar extends Character {
             return false;
           }
         }
+        return false;
       }
 }

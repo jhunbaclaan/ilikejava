@@ -56,17 +56,15 @@ public class Character extends Franchise {
     return name;
   }
   
-  public boolean claimStatus()
+  public String claimStatus()
   {
     if (isClaimed = true)
     {
-      System.out.println("This character is already claimed.");
-      return true;
+      return "This character is already claimed.";
     }
     else
     {
-      System.out.println("This character has yet to be claimed.");
-      return false;
+      return "This character has yet to be claimed.";
     }
   }
 

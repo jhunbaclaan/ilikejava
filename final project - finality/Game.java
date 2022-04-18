@@ -73,17 +73,20 @@ public class Game {
   }  
 
   public void search(String name) {
-      for (Character targetChar : character.getCharacterList()) // idea is to look through the arraylist of characters
+      String allChars = "";
+      for (Character c : characters) // idea is to look through the arraylist of characters
       {
-        if (targetChar.contains(name)) // if contains search query, it works properly
-        {
-          System.out.println(name + ", from the franchise " + character.getFranchise());
-          System.out.println(character.claimStatus());
-        }
-        else
-        {
-          System.out.println(name + " does not exist. Try adding them with \"add\"!");
-        }
+        allChars+= c;
+      }
+      if (allChars.contains(name))
+      {
+        Character targetChar = new Character(); 
+        System.out.println(name + ", from the franchise " + targetChar.getFranchise());
+        System.out.println(targetChar.claimStatus()); // also prints out if character is claimed or not
+      }
+      else
+      {
+        System.out.println(name + " does not exist. Try adding them with \"add\"!");
       }
   }
 
